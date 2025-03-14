@@ -1,0 +1,53 @@
+#pos(example_1, {}, {repeat}, {
+repetition(1, 2, 34).
+repetition(2, 3, 47).
+repetition(3, 4, 37).
+repetition(4, 5, 25).
+repetition(5, 6, 24).
+repetition(6, 7, 28).
+}).
+
+#pos(example_2, {repeat}, {}, {
+repetition(7, 8, 38).
+repetition(8, 9, 26).
+repetition(9, 10, 3).
+repetition(10, 11, 78).
+repetition(11, 12, 48).
+repetition(12, 13, 50).
+repetition(13, 14, 25).
+}).
+
+#pos(example_3, {}, {repeat}, {
+repetition(14, 15, 41).
+}).
+
+#pos(example_4, {repeat}, {}, {
+repetition(15, 16, 26).
+repetition(16, 17, 16).
+repetition(17, 18, 5).
+repetition(18, 19, 60).
+repetition(19, 20, 64).
+}).
+
+#pos(example_5, {}, {repeat}, {
+question(21).
+}).
+
+#pos(example_6, {}, {repeat}, {
+repetition(3, 10, 80).
+}).
+
+success(Y, X) :- repetition(Y, X, V), X = (Y + 1).
+domId(X) :- dom1(X).
+domId(X) :- dom2(X).
+
+#modeh(repeat).
+#modeh(exception).
+#modeb(exception, (negative)).
+#modeb(question(const(domId)), (positive)).
+#modeb(success(var(dom1), var(dom2))).
+#modeb(repetition(var(dom1), var(dom2), var(num)), (positive)).
+#modeb(var(num) > const(num), (positive)).
+#constant(dom1, 1..19).
+#constant(dom2, 2..20).
+#constant(num, 60..67).
