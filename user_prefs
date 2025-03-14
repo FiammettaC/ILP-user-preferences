@@ -1,0 +1,204 @@
+#pos(example_0, {}, {}, {
+question_type(topic(0), maintenance).
+number_questions(topic(0), 4).
+detail_preference(topic(0), 1).
+
+question_type(topic(1), management).
+number_questions(topic(1), 2).
+detail_preference(topic(1), 1).
+
+question_type(topic(2), production).
+number_questions(topic(2), 14).
+detail_preference(topic(2), 1).
+
+question_type(topic(3), qa).
+number_questions(topic(3), 3).
+detail_preference(topic(3), 2).
+
+question_type(topic(4), qc).
+number_questions(topic(4), 6).
+detail_preference(topic(4), 2).
+
+question_type(topic(5), training).
+number_questions(topic(5), 3).
+detail_preference(topic(5), 2).
+
+question_type(topic(6), logistics).
+number_questions(topic(6), 0).
+detail_preference(topic(6), 0).
+
+question_type(topic(7), review).
+number_questions(topic(7), 0).
+detail_preference(topic(7), 0).
+
+}).
+
+#pos(example_1, {}, {}, {
+question_type(topic(0), logistics).
+number_questions(topic(0), 8).
+detail_preference(topic(0), 1).
+
+question_type(topic(1), maintenance).
+number_questions(topic(1), 2).
+detail_preference(topic(1), 2).
+
+question_type(topic(2), management).
+number_questions(topic(2), 7).
+detail_preference(topic(2), 2).
+
+question_type(topic(3), production).
+number_questions(topic(3), 11).
+detail_preference(topic(3), 2).
+
+question_type(topic(4), qa).
+number_questions(topic(4), 13).
+detail_preference(topic(4), 1).
+
+question_type(topic(5), qc).
+number_questions(topic(5), 4).
+detail_preference(topic(5), 2).
+
+question_type(topic(6), review).
+number_questions(topic(6), 1).
+detail_preference(topic(6), 1).
+
+question_type(topic(7), training).
+number_questions(topic(7), 4).
+detail_preference(topic(7), 1).
+
+}).
+
+#pos(example_2, {}, {}, {
+question_type(topic(0), logistics).
+number_questions(topic(0), 4).
+detail_preference(topic(0), 1).
+
+question_type(topic(1), maintenance).
+number_questions(topic(1), 3).
+detail_preference(topic(1), 2).
+
+question_type(topic(2), management).
+number_questions(topic(2), 2).
+detail_preference(topic(2), 1).
+
+question_type(topic(3), production).
+number_questions(topic(3), 23).
+detail_preference(topic(3), 1).
+
+question_type(topic(4), qa).
+number_questions(topic(4), 1).
+detail_preference(topic(4), 2).
+
+question_type(topic(5), training).
+number_questions(topic(5), 1).
+detail_preference(topic(5), 1).
+
+question_type(topic(6), review).
+number_questions(topic(6), 0).
+detail_preference(topic(6), 0).
+
+question_type(topic(7), qc).
+number_questions(topic(7), 0).
+detail_preference(topic(7), 0).
+
+}).
+
+#pos(example_3, {}, {}, {
+question_type(topic(0), logistics).
+number_questions(topic(0), 3).
+detail_preference(topic(0), 1).
+
+question_type(topic(1), maintenance).
+number_questions(topic(1), 13).
+detail_preference(topic(1), 2).
+
+question_type(topic(2), management).
+number_questions(topic(2), 7).
+detail_preference(topic(2), 2).
+
+question_type(topic(3), production).
+number_questions(topic(3), 11).
+detail_preference(topic(3), 1).
+
+question_type(topic(4), qa).
+number_questions(topic(4), 6).
+detail_preference(topic(4), 1).
+
+question_type(topic(5), qc).
+number_questions(topic(5), 7).
+detail_preference(topic(5), 2).
+
+question_type(topic(6), training).
+number_questions(topic(6), 4).
+detail_preference(topic(6), 1).
+
+question_type(topic(7), review).
+number_questions(topic(7), 0).
+detail_preference(topic(7), 0).
+
+}).
+
+#pos(example_4, {}, {}, {
+question_type(topic(0), logistics).
+number_questions(topic(0), 7).
+detail_preference(topic(0), 1).
+
+question_type(topic(1), maintenance).
+number_questions(topic(1), 8).
+detail_preference(topic(1), 2).
+
+question_type(topic(2), management).
+number_questions(topic(2), 10).
+detail_preference(topic(2), 2).
+
+question_type(topic(3), production).
+number_questions(topic(3), 11).
+detail_preference(topic(3), 2).
+
+question_type(topic(4), qa).
+number_questions(topic(4), 9).
+detail_preference(topic(4), 2).
+
+question_type(topic(5), training).
+number_questions(topic(5), 5).
+detail_preference(topic(5), 1).
+
+question_type(topic(6), review).
+number_questions(topic(6), 0).
+detail_preference(topic(6), 0).
+
+question_type(topic(7), qc).
+number_questions(topic(7), 0).
+detail_preference(topic(7), 0).
+
+}).
+
+#brave_ordering(example_0, example_2, <).
+#brave_ordering(example_0, example_3, <).
+#brave_ordering(example_0, example_4, <).
+#brave_ordering(example_1, example_0, <).
+#brave_ordering(example_1, example_2, <).
+#brave_ordering(example_1, example_3, <).
+#brave_ordering(example_1, example_4, <).
+#brave_ordering(example_2, example_4, <).
+#brave_ordering(example_3, example_2, <).
+#brave_ordering(example_3, example_4, <).
+
+#modeo(1, question_type(var(topic), const(topic_preference)), (positive)).
+#modeo(1, number_questions(var(topic), var(count)), (positive)).
+#modeo(1, detail_preference(var(topic), var(level)), (positive)).
+#modeo(1, var(level) > const(level)).
+#weight(count).
+#weight(1).
+#constant(topic_preference, management).
+#constant(topic_preference, training).
+#constant(topic_preference, qa).
+#constant(topic_preference, qc).
+#constant(topic_preference, maintenance).
+#constant(topic_preference, logistics).
+#constant(topic_preference, production).
+#constant(topic_preference, review).
+#constant(level, 0).
+#constant(level, 1).
+#constant(level, 2).
+#maxp(3).
