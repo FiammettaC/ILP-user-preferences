@@ -1,0 +1,98 @@
+#pos(example_1, {semicorrect}, {correct, wrong}, {
+similarity(d1, 35).
+similarity(d1, 8).
+similarity(d1, 13).
+similarity(d1, 21).
+similarity(d2, 9).
+similarity(d2, 75).
+similarity(d2, 17).
+similarity(d2, 4).
+}).
+
+#pos(example_2, {semicorrect}, {correct, wrong}, {
+similarity(d1, 11).
+similarity(d1, 22).
+similarity(d1, 10).
+similarity(d1, 16).
+similarity(d2, 38).
+similarity(d2, 46).
+similarity(d2, 63).
+similarity(d2, 47).
+}).
+
+#pos(example_3, {correct}, {semicorrect, wrong}, {
+similarity(d1, 9).
+similarity(d1, 20).
+similarity(d1, 11).
+similarity(d1, 67).
+similarity(d3, 26).
+similarity(d2, 65).
+similarity(d2, 21).
+similarity(d2, 24).
+}).
+
+#pos(example_4, {semicorrect}, {correct, wrong}, {
+similarity(d1, 9).
+similarity(d1, 7).
+similarity(d1, 36).
+similarity(d1, 18).
+similarity(d2, 68).
+similarity(d2, 46).
+similarity(d2, 35).
+similarity(d2, 56).
+}).
+
+#pos(example_5, {semicorrect}, {correct, wrong}, {
+similarity(d1, 20).
+similarity(d1, 38).
+similarity(d1, 23).
+similarity(d1, 21).
+similarity(d2, 55).
+similarity(d2, 20).
+similarity(d2, 71).
+similarity(d2, 25).
+}).
+
+#pos(example_6, {wrong}, {correct, semicorrect}, {
+similarity(d1, 9).
+similarity(d1, 7).
+similarity(d1, 36).
+similarity(d1, 18).
+similarity(d2, 58).
+similarity(d2, 46).
+similarity(d2, 35).
+similarity(d2, 56).
+}).
+
+#pos(example_7, {wrong}, {correct, semicorrect}, {
+similarity(d1, 20).
+similarity(d1, 38).
+similarity(d1, 23).
+similarity(d1, 21).
+similarity(d2, 55).
+similarity(d2, 20).
+similarity(d2, 61).
+similarity(d2, 25).
+}).
+
+#pos(example_8, {correct}, {semicorrect, wrong}, {
+similarity(d1, 20).
+similarity(d1, 38).
+similarity(d1, 67).
+similarity(d1, 21).
+similarity(d2, 55).
+similarity(d2, 20).
+similarity(d2, 69).
+similarity(d2, 25).
+}).
+
+correct :- relevant(d1), relevant(d2).
+wrong :- not relevant(_).
+semicorrect :- not correct, relevant(_).
+
+#modeh(relevant(var(dom))).
+#modeb(similarity(var(dom), var(num))).
+#modeb(var(num) > const(num)).
+#constant(dom, d1).
+#constant(dom, d2).
+#constant(num, 62..65).
